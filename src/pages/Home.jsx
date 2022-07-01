@@ -312,7 +312,7 @@ const Home = () => {
                   Cảm nhận của <span>khách hàng</span>
                 </h2>
                 <p className="testimonial__desc">
-                  Đây đều là những cảm nhận thực tế của những kháh hàng đã trải nghiệm sản phẩm của chúng tôi
+                  Đây đều là những cảm nhận thực tế của những khách hàng đã trải nghiệm sản phẩm của chúng tôi
                 </p>
 
                 <TestimonialSlider />
