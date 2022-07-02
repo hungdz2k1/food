@@ -1,14 +1,72 @@
-import React from "react";
+import React, { useRef } from "react";
+import Helmet from "../components/Helmet/Helmet";
+import CommonSection from "../components/UI/common-section/CommonSection";
+import { Container, Row, Col } from "reactstrap";
 
 const Contact = () => {
-  return <div>
-    <iframe
-  title="Địa chỉ"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.710093455326!2d105.86534241562089!3d21.00425505582032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac0748332163%3A0x1d0f45cfec4520fb!2zNDU4IFAuIE1pbmggS2hhaSwgVGhhbmggTMawxqFuZywgSGFpIELDoCBUcsawbmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1655461657345!5m2!1svi!2sus"
-  width="100%"
-  height="350vh"
-></iframe>
-  </div>;
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const addressRef = useRef();
+  const messageRef = useRef();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <Helmet title="Contact">
+      <CommonSection title="Liên hệ" />
+      <section>
+        <Container>
+          <Row>
+            <Col lg="8" md="6" sm="12" className="m-auto text-center">
+            <h2>Liên hệ với chúng tôi</h2>
+              <p>
+                Điền thông tin liên hệ vào biểu mẫu bên dưới.
+              </p>
+              <form className="form mb-5" onSubmit={submitHandler}>
+                <div className="form__group">
+                  <input
+                    type="text"
+                    placeholder="Tên của bạn"
+                    required
+                    ref={nameRef}
+                  />
+                </div>
+                <div className="form__group">
+                  <input
+                    type="email"
+                    placeholder="Email của bạn"
+                    required
+                    ref={emailRef}
+                  />
+                </div>
+                <div className="form__group">
+                    <input
+                      type="text"
+                      placeholder="Nhập địa chỉ"
+                      required
+                      ref={addressRef}
+                    />
+                  </div>
+                  <div className="form__group">
+                    <textarea
+                      rows="7"
+                      placeholder="Nhập lời nhắn"
+                      required
+                      ref={messageRef}
+                    ></textarea>
+                  </div>
+                <button type="submit" className="addTOCart__btn">
+                  Gửi
+                </button>
+              </form>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </Helmet>
+  );
 };
 
 export default Contact;
